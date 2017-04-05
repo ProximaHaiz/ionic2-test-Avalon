@@ -13,8 +13,8 @@
 Tested on Chrome version 57.0.2987.133 (64-bit) and Xiaomi Mi5(android v. 6.0.1)
 
 
-For edit or delete company do this:
- <img src="resources/screenshots/avalon-imgs.png" alt="Schedule">
+For edit or delete company do this:                                                                     
+ <img src="resources/screenshots/avalon-imgs.png" alt="edit or delete">
  
-Use search menu for display only specifying companies:
-  <img src="resources/screenshots/avalon-search-menu-imgs.png" alt="Schedule">
+Use search menu for display only specifying companies:                                                            
+  <img src="resources/screenshots/avalon-search-menu-imgs.png" alt="search menu">
