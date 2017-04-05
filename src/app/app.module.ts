@@ -4,7 +4,6 @@ import {IonicApp, IonicModule} from "ionic-angular";
 import {IonicStorageModule} from "@ionic/storage";
 import {ConferenceApp} from "./app.component";
 import {TabsPage} from "../pages/tabs/tabs";
-import {TutorialPage} from "../pages/tutorial/tutorial";
 import {UserData} from "../providers/user-data";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {SplashScreen} from "@ionic-native/splash-screen";
@@ -22,7 +21,6 @@ import CompanyToastService from "../providers/companies-toast.service";
     ConferenceApp,
     CompanyListPage,
     TabsPage,
-    TutorialPage,
     CompanyPage,
     CompanyFormPage,
 
@@ -38,7 +36,6 @@ import CompanyToastService from "../providers/companies-toast.service";
     ConferenceApp,
     CompanyListPage,
     TabsPage,
-    TutorialPage,
     CompanyPage,
     CompanyFormPage
   ],

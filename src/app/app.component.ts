@@ -3,7 +3,6 @@ import {Events, MenuController, Nav, Platform} from "ionic-angular";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {Storage} from "@ionic/storage";
 import {TabsPage} from "../pages/tabs/tabs";
-import {TutorialPage} from "../pages/tutorial/tutorial";
 import {UserData} from "../providers/user-data";
 import {CompanyService} from "../providers/company.service";
 import {Companies} from "../interface/companies.interface";
@@ -39,17 +38,9 @@ export class ConferenceApp {
               private companyQueryService: CompanyQueryService) {
     this.queryList = new Set<string>();
     this.getAllCompanies();
-    // Check if the user has already seen the tutorial
-    this.storage.get('hasSeenTutorial')
-      .then((hasSeenTutorial) => {
-        if (hasSeenTutorial) {
-          this.rootPage = TabsPage;
-        } else {
-          this.rootPage = TutorialPage;
-        }
-        this.platformReady()
-      });
-    // load the conference data
+
+    this.rootPage = TabsPage;
+
   }
 
   addToQueryList(query: string) {
@@ -87,61 +78,5 @@ export class ConferenceApp {
 
       }
     );
-  }
-
-  openPage(page: PageInterface) {
-    // the nav component was found using @ViewChild(Nav)
-    // reset the nav to remove previous pages and only have this page
-    // we wouldn't want the back button to show in this scenario
-    if (page.index) {
-      this.nav.setRoot(page.component, {tabIndex: page.index}).catch(() => {
-        console.log("Didn't set nav root");
-      });
-    } else {
-      this.nav.setRoot(page.component).catch(() => {
-        console.log("Didn't set nav root");
-      });
-    }
-
-    if (page.logsOut === true) {
-      // Give the menu time to close before changing to logged out
-      setTimeout(() => {
-        this.userData.logout();
-      }, 1000);
-    }
-  }
-
-
-  // getItems(ev: any) {
-  //   // Reset items back to all of the items
-  //   this.initializeItems();
-  //
-  //   // set val to the value of the searchbar
-  //   let val = ev.target.value;
-  //
-  //   // if the value is an empty string don't filter the items
-  //   if (val && val.trim() != '') {
-  //     this.items = this.items.filter((item) => {
-  //       return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-  //     })
-  //   }
-  // }
-
-
-  isActive(page: PageInterface) {
-    let childNav = this.nav.getActiveChildNav();
-
-    // Tabs are a special case because they have their own navigation
-    if (childNav) {
-      if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
-        return 'primary';
-      }
-      return;
-    }
-
-    if (this.nav.getActive() && this.nav.getActive().component === page.component) {
-      return 'primary';
-    }
-    return;
   }
 }
