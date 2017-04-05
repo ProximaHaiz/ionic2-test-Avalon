@@ -40,6 +40,7 @@ export class ConferenceApp {
     this.getAllCompanies();
 
     this.rootPage = TabsPage;
+    this.platformReady();
 
   }
 
