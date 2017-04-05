@@ -10,4 +10,4 @@
 * cmd -  ionic platform add android
 * cmd -  ionic build android
 
-* Tesed on Chrome version 57.0.2987.133 (64-bit) and Xiaomi Mi5(android v. 6.0.1)
+Tesed on Chrome version 57.0.2987.133 (64-bit) and Xiaomi Mi5(android v. 6.0.1)
