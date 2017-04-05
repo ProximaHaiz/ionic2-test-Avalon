@@ -7,5 +7,5 @@
 * Run ionic serve in a terminal from the project root.
 
 ## Build for Android
-*cmd -  ionic platform add android
-*cmd -  ionic build android
+* cmd -  ionic platform add android
+* cmd -  ionic build android
