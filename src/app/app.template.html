@@ -1,0 +1,87 @@
+<ion-split-pane>
+
+  <!-- logged out menu -->
+  <ion-menu id="loggedOutMenu" [content]="content">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="outer-content">
+      <ion-list *ngIf="companies">
+        <ion-list-header>
+          Companies
+        </ion-list-header>
+        <div *ngFor="let company of companies; let i = index">
+          <ion-item *ngIf="company.companyName">
+            <ion-label>{{company.companyName}}</ion-label>
+            <ion-checkbox (ionChange)="addToQueryList(company.companyName)" color="blue" checked="false"></ion-checkbox>
+          </ion-item>
+        </div>
+      </ion-list>
+
+      <ion-list *ngIf="goods">
+        <ion-list-header>
+          Companies goods
+        </ion-list-header>
+        <div *ngFor="let good of goods">
+          <ion-item *ngIf="good">
+            <ion-label>{{good}}</ion-label>
+            <ion-checkbox (ionChange)="addToQueryList(good)" color="blue" checked="false"></ion-checkbox>
+          </ion-item>
+        </div>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- logged in menu -->
+  <!--<ion-menu id="loggedInMenu" [content]="content">-->
+
+  <!--<ion-header>-->
+  <!--<ion-toolbar>-->
+  <!--<ion-title>Menu</ion-title>-->
+  <!--</ion-toolbar>-->
+  <!--</ion-header>-->
+
+  <!--<ion-content class="outer-content">-->
+
+  <!--<ion-list>-->
+  <!--<ion-list-header>-->
+  <!--Navigate-->
+  <!--</ion-list-header>-->
+  <!--<button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">-->
+  <!--<ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>-->
+  <!--{{p.title}}-->
+  <!--</button>-->
+  <!--</ion-list>-->
+
+  <!--<ion-list>-->
+  <!--<ion-list-header>-->
+  <!--Account-->
+  <!--</ion-list-header>-->
+  <!--<button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">-->
+  <!--<ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>-->
+  <!--{{p.title}}-->
+  <!--</button>-->
+  <!--</ion-list>-->
+
+  <!--<ion-list>-->
+  <!--<ion-list-header>-->
+  <!--Tutorial-->
+  <!--</ion-list-header>-->
+  <!--<button ion-item menuClose (click)="openTutorial()">-->
+  <!--<ion-icon item-left name="hammer"></ion-icon>-->
+  <!--Show Tutorial-->
+  <!--</button>-->
+  <!--</ion-list>-->
+
+  <!--</ion-content>-->
+
+  <!--</ion-menu>-->
+
+  <!-- main navigation -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
+
+</ion-split-pane>

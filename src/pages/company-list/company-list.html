@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Companies</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-list>
+    <ion-grid no-padding>
+      <!--<ion-row align-items-stretch>-->
+      <!--<ion-col col-12 col-md-6 align-self-stretch align-self-center>-->
+
+      <ion-list *ngIf="companies">
+        <ion-item-sliding *ngFor="let company of companiesToDisplay |companiesPipe:queryText">
+          <ion-item *ngIf="company.companyName" (click)="goToCompanyPage(company)">
+            <ion-avatar item-left>
+              <img src="assets/img/company-icon-300.png">
+            </ion-avatar>
+            <h2>{{company.companyName}}</h2>
+            <h4>{{company.goodsString}}
+              <ion-badge item-right>{{company.companyGoods.length}}</ion-badge>
+            </h4>
+          </ion-item>
+
+          <ion-item-options side="right">
+            <button ion-button color="light" (click)="presentModal(company)">
+              <ion-icon name="clipboard"></ion-icon>
+              Edit
+            </button>
+
+            <button ion-button color="danger" (click)="removeCompany(company.companyName)">
+              <ion-icon name="trash"></ion-icon>
+              Delete
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+      <!--</ion-col>-->
+      <!--</ion-row>-->
+    </ion-grid>
+  </ion-list>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab >
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab color="success" (click)="presentModal(null)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

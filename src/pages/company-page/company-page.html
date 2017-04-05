@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>companyPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Company: {{company.companyName}}
+    </ion-card-header>
+    <div style="border-bottom: 2px solid #efe7e7;"></div>
+    <ion-list>
+      <button ion-item>
+        Company goods:
+      </button>
+
+      <button ion-item *ngFor="let goods of company.companyGoods">
+        <ion-icon name="medical" item-left></ion-icon>
+        {{goods}}
+      </button>
+    </ion-list>
+
+
+    <!--<ion-card-content>-->
+
+    <!--</ion-card-content>-->
+  </ion-card>
+
+</ion-content>
